@@ -1,0 +1,11 @@
+<div class="my-accordian-list">
+  <div class="container" *ngFor="let section of accordianList">
+    <p-accordion [multiple]="true" >
+      <p-accordionTab header={{section.name}}>
+          <p>{{section.data}}</p>
+      </p-accordionTab>
+  </p-accordion>
+  </div>
+</div>
+
+

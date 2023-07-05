@@ -1,0 +1,30 @@
+
+    <div class="card">
+      <h3>Add Section</h3>
+      <form #myForm="ngForm" (ngSubmit)="onSubmit()">
+        <div class="form-row align-items-center">
+          <div class="col-md-12 my-1">
+            <div class="form-group">
+              <label for="name">Section Header</label>
+              <input type="text" class="form-control" id="name" ngModel name="name" required>
+              <span class="text-danger" *ngIf="!myForm.controls['name']?.valid && myForm.controls['name']?.touched">Header is required</span>
+            </div>
+          </div>
+          <div class="col-md-12 my-1">
+            <div class="form-group">
+              <label for="data">Section Details</label>
+              <textarea type="text" class="form-control" id="data" ngModel name="data" required></textarea>
+              <span class="text-danger" *ngIf="!myForm.controls['data']?.valid && myForm.controls['data']?.touched">
+                Details is required.
+              </span>
+            </div>
+          </div>
+          <div class="col-md-12 my-1">
+            <button type="submit" class="btn btn-primary btn-block shadow" [disabled]="!myForm.valid">Add</button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+
+
