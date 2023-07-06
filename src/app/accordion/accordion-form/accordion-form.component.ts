@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Accordion } from 'src/app/shared/model/accordion.model';
 import { AccordionService } from 'src/app/shared/services/accordion.service';
 
@@ -7,24 +7,17 @@ import { AccordionService } from 'src/app/shared/services/accordion.service';
   templateUrl: './accordion-form.component.html',
   styleUrls: ['./accordion-form.component.css']
 })
-export class AccordionFormComponent {
-  isNewSection : boolean = true;
+export class AccordionFormComponent implements OnInit {
+
   @ViewChild('myForm')  myFormObj : any;
 
-
   constructor(private accordionServe : AccordionService){  }
-  ngOnInit(): void {
-
-  }
+  ngOnInit(): void {}
 
   onSubmit(){
-
     let section = this.myFormObj.value;
     let sectionObj = new Accordion(section.name, section.data)
-    console.log(sectionObj)
-    if(this.isNewSection){
-      this.accordionServe.addNewAccordionToList(sectionObj);
-    }
+    this.accordionServe.addNewAccordionToList(sectionObj);
     this.myFormObj.reset();
 
   }

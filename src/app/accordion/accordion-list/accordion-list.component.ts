@@ -13,7 +13,7 @@ export class AccordionListComponent implements OnInit {
   constructor(private accordServe : AccordionService){}
 
   ngOnInit(): void {
-    this.accordianList = this.accordServe.getShoppingList();
+    this.accordianList = this.accordServe.getAccordList();
     this.accordServe.accordSub.subscribe({
       next : (updatedList : Accordion[] | any) => {
       this.accordianList = updatedList;

@@ -1,4 +1,4 @@
-import { BehaviorSubject, Subject } from "rxjs";
+import { BehaviorSubject } from "rxjs";
 import { Accordion } from "../model/accordion.model";
 
 export class AccordionService{
@@ -11,14 +11,12 @@ export class AccordionService{
 
   accordSub = new BehaviorSubject(this.DataList.slice());
 
-
-  getShoppingList(){
+  getAccordList(){
     return this.DataList.slice();
   }
 
   addNewAccordionToList( newContent :  Accordion){
     this.DataList.push(newContent)
-    console.log(this.DataList)
     this.accordSub.next(this.DataList.slice())
   }
 }
